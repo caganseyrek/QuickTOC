@@ -1,5 +1,5 @@
 window.onload = function () {
-    var includeh1 = true;
+    var includeh1 = false;
 
     var pageContents = document.getElementById("page-contents");
     var headings = pageContents.querySelectorAll("h1,h2,h3,h4");
