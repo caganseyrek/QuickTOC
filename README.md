@@ -2,15 +2,15 @@
 
 A simple script that uses the headings in the content of the page and automatically generates a table of contents.
 
-As default, the generator uses `h2`, `h3`, and `h4` tags while generating the toc and reserves `h1` tag for the page title.
-
-You can see an example image of a generated toc [here](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png).
+You can see an example image of a generated TOC [here](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png).
 
 ***
 
-## Usage
+## Setup
 
-First, install the `toc-generator.js` file. Then edit the parts shown below if necessary:
+First, install the `toc-generator.js` file.
+
+Then edit the parts shown below if necessary:
 
 ```javascript
 // "page-contents" is where the generator will get the headers.
@@ -20,10 +20,21 @@ var pageContents = document.getElementById("page-contents");
 document.getElementById("toc").appendChild(toclist);
 ```
 
-Then, you can add the script right before the `</body>` tag in your HTML file.
+By default, the generator uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title.
+
+If you want to include `h1` elements, just edit this variable in the `toc-generator.js` file to be `true`.
+
+```javascript
+var includeh1 = false;
+```
+
+***
+
+## Usage
+
+You can add this line with your file's location right before the `</body>` tag in your HTML file.
 
 ```html
-<!-- Don't forget to change the path to you file's location --> 
 <script src="/toc-generator.js"></script>
 ```
 
@@ -31,34 +42,45 @@ Then, you can add the script right before the `</body>` tag in your HTML file.
 
 ## Styling
 
-If you don't want to deal with the styling, you can just install the `toc-style.css` file and add this line to your main css file:
+If you don't want to deal with the styling, you can just install the `toc-style.css` file and import it into your main css file.
 
 ```css
-/* Don't forget to change the path to you file's location */
 @import url("./toc-style.css");
 ```
 
-or you can add this line to between `<head>` tags in your html file:
+Or you can add it directly to your HTML file without importing it into your main css file by putting this line between `<head>` tags.
 
 ```html
-<!-- Don't forget to change the path to you file's location --> 
 <link rel="stylesheet" href="./toc-style.css" />
 ```
 
+Don't forget to update path parts of these lines to your file's path.
+
 ***
 
-A bit of information if you want to use a custom styling:
+## Custom Styling
 
- * You can change main list's (`h2`) styling just by adding styles to container where the script put the list (`#toc` as default).
-   ```css
-   #toc { /* your styling */ }
-   #toc ul { /* your styling */ }
-   #toc ul li { /* your styling */ }
-   #toc ul li a{ /* your styling */ }
-   ```
- * Sublist's have these classes as default:
-   ```css
-   .toc-sublist { /* for h3 */ }
-   .toc-doublesublist { /* for h4 */ }
-   ```
- * If you want to change these classes, don't forget to also update those classes' name in the `toc-generator.js` file.
+You can change main list's appearance by adding styling to the container where the script put the list (`#toc` as default).
+```css
+#toc { /* your styling */ }
+#toc ul { /* your styling */ }
+#toc ul li { /* your styling */ }
+#toc ul li a{ /* your styling */ }
+```
+
+Sublist's have these classes as default
+
+```css
+.toc-sublist { /* for h2 */ }
+.toc-doublesublist { /* for h3 */ }
+.toc-triplesublist { /* for h4 */ }
+```
+
+When you exclude `h1` tags, all the sublists go up one heading level.
+```css
+.toc-sublist { /* for h3 */ }
+.toc-doublesublist { /* for h4 */ }
+.toc-triplesublist { /* this class is not used when h1 is not included  */ }
+```
+   
+If you want to change these classes, don't forget to also update those classes' name in the `toc-generator.js` file.
