@@ -17,7 +17,8 @@
 }
 
 #toc .toc-sublist,
-#toc .toc-doublesublist {
+#toc .toc-doublesublist,
+#toc .toc-triplesublist {
     padding-left: 20px;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -26,17 +27,20 @@
 }
 
 #toc .toc-sublist:last-child,
-#toc .toc-doublesublist:last-child {
+#toc .toc-doublesublist:last-child,
+#toc .toc-triplesublist:last-child {
     margin-bottom: 10px;
 }
 
 #toc .toc-sublist a,
-#toc .toc-doublesublist a {
+#toc .toc-doublesublist a,
+#toc .toc-triplesublist a {
     color: #393939;
     text-decoration: none;
 }
 
 #toc .toc-sublist a:hover,
-#toc .toc-doublesublist a:hover{
+#toc .toc-doublesublist a:hover,
+#toc .toc-triplesublist a:hover {
     color: #8B0000;
 }
