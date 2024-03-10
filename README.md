@@ -4,7 +4,7 @@ A simple script that uses the headings in the content of the page and automatica
 
 As default, the generator uses `h2`, `h3`, and `h4` tags while generating the toc and reserves `h1` tag for the page title.
 
-You can see an example [here](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png).
+You can see an example image of a generated toc [here](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png).
 
 ***
 
