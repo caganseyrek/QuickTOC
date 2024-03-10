@@ -1,4 +1,4 @@
-![image](https://github.com/caganseyrek/TOC-Generator/assets/115536535/38c97bf7-1307-43cd-80d8-6b795b7caad4)![image](https://github.com/caganseyrek/TOC-Generator/assets/115536535/9b4bd9f1-980a-4f46-bd61-9220655c6f46)# TOC-Generator
+# TOC-Generator
 
 A simple script that uses the headings in the content of the page and automatically generates a table of contents.
 
