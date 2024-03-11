@@ -3,7 +3,6 @@
     color: #000000;
     overflow-y: auto;
     list-style-type: decimal;
-    height: calc(100vh - 108px);
 }
 
 #toc a {
