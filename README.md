@@ -20,9 +20,7 @@ var pageContents = document.getElementById("page-contents");
 document.getElementById("toc").appendChild(toclist);
 ```
 
-By default, the generator uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title.
-
-If you want to include `h1` elements, just edit this variable in the `toc-generator.js` file to be `true`.
+By default, the generator uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title. But if you want to include `h1` elements, just edit this variable in the `toc-generator.js` file to be `true`.
 
 ```javascript
 var includeh1 = false;
