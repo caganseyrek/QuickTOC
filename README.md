@@ -54,17 +54,13 @@ Don't forget to update path parts of these lines to your file's path.
 
 ## Custom Styling
 
-You can change main list's appearance by adding styling to the container where the script put the list (`#toc` as default).
+You can change main list's appearance by adding styling to the container where the script put the list (`#toc` as default). Container and sublists have these classes as default:
 ```css
 #toc { /* your styling */ }
 #toc ul { /* your styling */ }
 #toc ul li { /* your styling */ }
 #toc ul li a{ /* your styling */ }
-```
 
-Sublist's have these classes as default
-
-```css
 .toc-sublist { /* for h2 */ }
 .toc-doublesublist { /* for h3 */ }
 .toc-triplesublist { /* for h4 */ }
@@ -77,4 +73,4 @@ When you exclude `h1` tags, all the sublists go up one heading level.
 .toc-triplesublist { /* this class is not used when h1 is not included  */ }
 ```
    
-If you want to change these classes, don't forget to also update those classes' name in the `toc-generator.js` file.
+If you change these classes, don't forget to also update those classes' name in the `toc-generator.js` file.
