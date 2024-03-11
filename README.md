@@ -6,7 +6,7 @@ You can see an example image of a generated TOC [here](https://github.com/cagans
 
 ***
 
-## Setup
+## Setup and Usage
 
 First, install the `toc-generator.js` file.
 
@@ -28,11 +28,7 @@ If you want to include `h1` elements, just edit this variable in the `toc-genera
 var includeh1 = false;
 ```
 
-***
-
-## Usage
-
-You can add this line with your file's location right before the `</body>` tag in your HTML file.
+Finally, you can add this line with your file's location right before the `</body>` tag in your HTML file.
 
 ```html
 <script src="/toc-generator.js"></script>
