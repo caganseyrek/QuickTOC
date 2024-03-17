@@ -2,7 +2,7 @@
 
 A simple script that uses the headings in the content of the page and automatically generates a table of contents with styling.
 
-You can see an example image of a generated TOC [in this example image](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png) or at [caganseyrek.github.io](https://caganseyrek.github.io/) as it uses this script to generate a table of contents for each page's right sidebar.
+You can see an example image of a generated TOC [in this example image](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png) or at [caganseyrek.github.io](https://caganseyrek.github.io/) as it uses this script to generate a table of contents for it's articles.
 
 ***
 
