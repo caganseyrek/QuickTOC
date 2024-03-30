@@ -10,7 +10,7 @@ You can see an example image of a generated TOC in [this example image](https://
 
 First, install the `toc-generator.js` file.
 
-Then edit the parts shown below if necessary:
+Then edit the parts shown below:
 
 ```javascript
 // "page-contents" is where the generator will get the headers.
@@ -26,10 +26,10 @@ By default, the generator uses `h2`, `h3`, and `h4` elements while generating th
 var includeh1 = false;
 ```
 
-Finally, you can add this line with your file's location right before the `</body>` tag in your HTML file.
+Finally, you can add this line right before the `</body>` tag in your HTML file.
 
 ```html
-<script src="/toc-generator.js"></script>
+<script src="/path/to/toc-generator.js"></script>
 ```
 
 ***
@@ -39,16 +39,14 @@ Finally, you can add this line with your file's location right before the `</bod
 If you don't want to deal with the styling, you can just install the `toc-style.css` file and import it into your main css file.
 
 ```css
-@import url("./toc-style.css");
+@import url("/path/to/toc-style.css");
 ```
 
 Or you can add it directly to your HTML file without importing it into your main css file by putting this line between `<head>` tags.
 
 ```html
-<link rel="stylesheet" href="./toc-style.css" />
+<link rel="stylesheet" href="/path/to/toc-style.css" />
 ```
-
-Don't forget to update path parts of these lines to your file's path.
 
 ***
 
