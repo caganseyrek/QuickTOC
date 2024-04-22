@@ -13,10 +13,10 @@ First, install the `toc-generator.js` file.
 Then edit the parts shown below:
 
 ```javascript
-// "page-contents" is where the generator will get the headers.
+// "page-contents" is where the generator will get the header elements.
 var pageContents = document.getElementById("page-contents");
 
-// "toc" is  where the generator will put the list.
+// "toc" is where the generator will put the table of contents.
 document.getElementById("toc").appendChild(toclist);
 ```
 
