@@ -1,0 +1,26 @@
+{
+  "name": "tocgenerator",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Automatic table of contents generator ",
+  "type": "module",
+  "scripts": {
+    "minify": "uglifyjs ./src/toc.js -c -m --output ./src/toc.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caganseyrek/TOC-Generator.git"
+  },
+  "keywords": [
+    "Table of Contents"
+  ],
+  "author": "Çağan Seyrek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caganseyrek/TOC-Generator/issues"
+  },
+  "homepage": "https://github.com/caganseyrek/TOC-Generator#README",
+  "devDependencies": {
+    "uglify-js": "^3.19.1"
+  }
+}
