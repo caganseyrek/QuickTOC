@@ -1,74 +1,101 @@
 # TOC-Generator
 
-A simple script that uses the headings in the content of the page and automatically generates a table of contents with styling.
+A simple script that uses the headings in the content of a page and automatically generates a table of contents with styling.
 
-You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/TOC-Generator/blob/main/example.png).
-
-***
+You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/TOC-Generator/blob/main/img/example.png).
 
 ## Setup and Usage
 
-First, install the `toc-generator.js` file.
+First, install the `toc.min.js` file.
 
-Then edit the parts shown below:
-
-```javascript
-// "page-contents" is where the generator will get the header elements.
-var pageContents = document.getElementById("page-contents");
-
-// "toc" is where the generator will put the table of contents.
-document.getElementById("toc").appendChild(toclist);
-```
-
-By default, the generator uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title. But if you want to include `h1` elements, just edit this variable in the `toc-generator.js` file to be `true`.
-
-```javascript
-var includeh1 = false;
-```
-
-Finally, you can add this line right before the `</body>` tag in your HTML file.
+Then add the script right before the `</body>` tag in your HTML file.
 
 ```html
-<script src="/path/to/toc-generator.js"></script>
+  ...
+  <script src="/path/to/toc.min.js"></script>
+</body>
 ```
 
-***
+Next, call the function on the page where you want to add the TOC:
+
+```html
+  ...
+  <script src="/path/to/toc.min.js"></script>
+  <script>
+    GenerateTOC();
+  </script>
+</body>
+```
+
+You can call the function without any parameters. By default, the script looks for an element with the ID "page-contents" to get the headings and an element with the ID "toc" to place the table of contents.
+
+If you want to use elements with custom IDs, you can pass the parameters as shown below:
+
+```html
+  ...
+  <script src="/path/to/toc.min.js"></script>
+  </body>
+  <script>
+    GenerateTOC(
+      true,            // includeH1: boolean
+      "page-contents", // pageContentsId: string
+      "toc"            // tocSectionId: string
+    );
+  </script>
+</html>
+```
+
+### Options
+
+- **includeH1**: By default, the generator uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title. To include `h1` in the TOC, just set the first parameter to `true`.
+
+- **pageContentsId**: By default, the generator looks for an element with the ID "page-contents" to get the headings. You can pass a custom element ID as the second parameter to use headings from that element.
+
+- **tocSectionId**: By default, the generator looks for an element with the ID "toc" to place the table of contents. You can pass a custom element ID as the third parameter to place the TOC in that element.
 
 ## Styling
 
-If you don't want to deal with the styling, you can just install the `toc-style.css` file and import it into your main css file.
+To use the default stylings, you can just install the `toc.css` file, which contains the default styles for the TOC, and import it into your main CSS file.
 
 ```css
-@import url("/path/to/toc-style.css");
+@import url("/path/to/toc.css");
 ```
 
-Or you can add it directly to your HTML file without importing it into your main css file by putting this line between `<head>` tags.
+Alternatively, you can add it directly to your HTML file without importing it into your main CSS file:
 
 ```html
-<link rel="stylesheet" href="/path/to/toc-style.css" />
+<link rel="stylesheet" href="/path/to/toc.css" />
 ```
-
-***
 
 ## Custom Styling
 
-You can change main list's appearance by adding styling to the container where the script put the list (`#toc` as default). Container and sublists have these classes as default:
-```css
-#toc { /* your styling */ }
-#toc ul { /* your styling */ }
-#toc ul li { /* your styling */ }
-#toc ul li a{ /* your styling */ }
+You can change appearance of the main list by adding styles to the container where the script places the list. Container and sublists have these classes as default:
 
-.toc-sublist { /* for h2 */ }
-.toc-doublesublist { /* for h3 */ }
-.toc-triplesublist { /* for h4 */ }
+```css
+#toc {}
+#toc ul {}
+#toc ul li {}
+#toc ul li a {}
+
+.toc-sublist {} /* for h2 */
+.toc-doublesublist {} /* for h3 */
+.toc-triplesublist {} /* for h4 */
 ```
 
 When you exclude `h1` tags, all the sublists go up one heading level.
+
 ```css
-.toc-sublist { /* for h3 */ }
-.toc-doublesublist { /* for h4 */ }
-.toc-triplesublist { /* this class is not used when h1 is not included  */ }
+.toc-sublist {} /* for h3 */
+.toc-doublesublist {} /* for h4 */
+
+/* this class is not used when h1 is not included */
+.toc-triplesublist {}
 ```
-   
-If you change these classes, don't forget to also update those classes' name in the `toc-generator.js` file.
+
+## Customizing
+
+After modifying the `toc.js`, you can run the following command to minify it and overwrite the `toc.min.js`:
+
+```bash
+npm run minify
+```
