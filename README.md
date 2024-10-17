@@ -92,7 +92,7 @@ When you exclude `h1` tags, all the sublists go up one heading level.
 .toc-triplesublist {}
 ```
 
-## Customizing
+## Minifying
 
 After modifying the `toc.js`, you can run one of the following commands to minify it and overwrite the `toc.min.js`:
 
