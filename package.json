@@ -1,11 +1,11 @@
 {
-  "name": "tocgenerator",
+  "name": "toc_generator",
   "private": true,
   "version": "2.0.0",
-  "description": "Automatic table of contents generator ",
+  "description": "Automatic table of contents generator",
   "type": "module",
   "scripts": {
-    "minify": "uglifyjs ./src/toc.js -c -m --output ./src/toc.min.js"
+    "build": "esbuild src/index.ts --bundle --minify --sourcemap --format=esm --outfile=dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,13 @@
   },
   "homepage": "https://github.com/caganseyrek/TOC-Generator#README",
   "devDependencies": {
-    "uglify-js": "^3.19.1"
+    "@types/jest": "^29.5.14",
+    "esbuild": "0.24.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^25.0.1",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   }
 }
