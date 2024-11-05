@@ -9,11 +9,7 @@ class TOCGenerator {
   private pageContentsId?: string;
   private tocSectionId?: string;
 
-  public init({
-    includeH1 = false,
-    pageContentsId = "page-contents",
-    tocSectionId = "toc-section",
-  }: TOCGeneratorProps = {}): void {
+  public init({ includeH1 = false, pageContentsId = "page-contents", tocSectionId = "toc-section" }: TOCGeneratorProps = {}): void {
     this.includeH1 = includeH1;
     this.pageContentsId = pageContentsId;
     this.tocSectionId = tocSectionId;
@@ -36,7 +32,7 @@ class TOCGenerator {
       return;
     }
 
-    let toclist: HTMLOListElement = document.createElement("ol");
+    const toclist: HTMLOListElement = document.createElement("ol");
 
     let prevHeading: string = "";
     let prevSubList: number = 0;
@@ -50,7 +46,7 @@ class TOCGenerator {
         break;
       }
 
-      let id: string = headingText.toLowerCase().replace(/ /g, "-");
+      const id: string = headingText.toLowerCase().replace(/ /g, "-");
       let level: string = headings[i].localName.replace("h", "");
 
       if (!this.includeH1) {
@@ -60,8 +56,8 @@ class TOCGenerator {
       }
 
       headings[i].setAttribute("id", id);
-      let listitem: HTMLLIElement = document.createElement("li");
-      let anchor: HTMLAnchorElement = document.createElement("a");
+      const listitem: HTMLLIElement = document.createElement("li");
+      const anchor: HTMLAnchorElement = document.createElement("a");
 
       anchor.setAttribute("href", "#" + id);
       anchor.textContent = headingText;
@@ -71,10 +67,10 @@ class TOCGenerator {
         toclist.appendChild(listitem);
         prevHeading = level;
       } else if (level === "2") {
-        if (prevHeading == level) {
+        if (prevHeading === level) {
           document.getElementsByClassName("toc-sublist")[prevSubList - 1].appendChild(listitem);
         } else {
-          let sublist = document.createElement("ul");
+          const sublist = document.createElement("ul");
           prevSubList++;
           sublist.setAttribute("class", "toc-sublist");
           sublist.appendChild(listitem);
@@ -82,33 +78,25 @@ class TOCGenerator {
         }
         prevHeading = level;
       } else if (level === "3") {
-        if (prevHeading == level) {
-          document
-            .getElementsByClassName("toc-doublesublist")
-            [prevDoubleSublist - 1].appendChild(listitem);
+        if (prevHeading === level) {
+          document.getElementsByClassName("toc-doublesublist")[prevDoubleSublist - 1].appendChild(listitem);
         } else {
-          let doubleSubList = document.createElement("ul");
+          const doubleSubList = document.createElement("ul");
           prevDoubleSublist++;
           doubleSubList.setAttribute("class", "toc-doublesublist");
           doubleSubList.appendChild(listitem);
-          document
-            .getElementsByClassName("toc-sublist")
-            [prevSubList - 1].appendChild(doubleSubList);
+          document.getElementsByClassName("toc-sublist")[prevSubList - 1].appendChild(doubleSubList);
         }
         prevHeading = level;
       } else if (level === "4") {
-        if (prevHeading == level) {
-          document
-            .getElementsByClassName("toc-triplesublist")
-            [prevTripleSublist - 1].appendChild(listitem);
+        if (prevHeading === level) {
+          document.getElementsByClassName("toc-triplesublist")[prevTripleSublist - 1].appendChild(listitem);
         } else {
-          let tripleSublist = document.createElement("ul");
+          const tripleSublist = document.createElement("ul");
           prevTripleSublist++;
           tripleSublist.setAttribute("class", "toc-triplesublist");
           tripleSublist.appendChild(listitem);
-          document
-            .getElementsByClassName("toc-doublesublist")
-            [prevSubList - 1].appendChild(tripleSublist);
+          document.getElementsByClassName("toc-doublesublist")[prevSubList - 1].appendChild(tripleSublist);
         }
         prevHeading = level;
       }
