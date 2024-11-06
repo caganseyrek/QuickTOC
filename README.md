@@ -1,23 +1,23 @@
-# TOC-Generator
+# QuickTOC
 
 A simple script that uses the headings in the content of a page and automatically generates a table of contents with styling.
 
-You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/TOC-Generator/blob/main/img/example.png).
+You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/QuickTOC/blob/main/img/example.png).
 
 ## Setup and Usage
 
 First, install the package.
 
 ```bash
-npm install toc-generator
+npm install quicktoc
 # or
-pnpm add toc-generator
+pnpm add quicktoc
 ```
 
 You can initialize the TOC without any parameters.
 
 ```typescript
-new TOCGenerator().init();
+new QuickTOC().init();
 ```
 
 By default, the script looks for an element with the ID "page-contents" to get the headings and an element with the ID "toc" to place the table of contents.
@@ -25,7 +25,7 @@ By default, the script looks for an element with the ID "page-contents" to get t
 If you want to use elements with custom IDs, you can pass the parameters as shown below:
 
 ```typescript
-new TOCGenerator().init({
+new QuickTOC().init({
   includeH1: true,                  // includeH1?: boolean;
   pageContentsId: "page-contents",  // pageContentsId?: string;
   tocSectionId: "toc",              // tocSectionId?: string;
@@ -34,26 +34,26 @@ new TOCGenerator().init({
 
 ### Options
 
-- **includeH1**: By default, the generator uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title. To include `h1` in the TOC, just set the first parameter to `true`.
+- **includeH1**: By default, the script uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title. To include `h1` in the TOC, just set the first parameter to `true`.
 
-- **pageContentsId**: By default, the generator looks for an element with the ID "page-contents" to get the headings. You can pass a custom element ID as the second parameter to use headings from that element.
+- **pageContentsId**: By default, the script looks for an element with the ID "page-contents" to get the headings. You can pass a custom element ID as the second parameter to use headings from that element.
 
-- **tocSectionId**: By default, the generator looks for an element with the ID "toc" to place the table of contents. You can pass a custom element ID as the third parameter to place the TOC in that element.
+- **tocSectionId**: By default, the script looks for an element with the ID "toc" to place the table of contents. You can pass a custom element ID as the third parameter to place the TOC in that element.
 
 ## Styling
 
-To use the default stylings, you can just install the `toc_generator.css` file, which contains the default styles for the TOC, and import it.
+To use the default stylings, you can just install the `quicktoc.css` file, which contains the default styles for the TOC, and import it.
 
 ```css
-@import url("/path/to/toc_generator.css"); /* css */
+@import url("/path/to/quicktoc.css"); /* css */
 ```
 
 ```typescript
-import "/path/to/toc_generator.css"; // typescript
+import "/path/to/quicktoc.css"; // typescript
 ```
 
 ```html
-<link rel="stylesheet" href="/path/to/toc_generator.css" /> <!-- html -->
+<link rel="stylesheet" href="/path/to/quicktoc.css" /> <!-- html -->
 ```
 
 ## Custom Styling

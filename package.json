@@ -1,6 +1,6 @@
 {
-  "name": "toc-generator",
-  "version": "2.0.0",
+  "name": "quicktoc",
+  "version": "2.1.0",
   "description": "Automatic table of contents generator",
   "main": "dist/index.js",
   "type": "module",
@@ -12,13 +12,13 @@
   "author": "Çağan Seyrek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/caganseyrek/TOC-Generator/issues"
+    "url": "https://github.com/caganseyrek/QuickTOC/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caganseyrek/TOC-Generator.git"
+    "url": "git+https://github.com/caganseyrek/QuickTOC.git"
   },
-  "homepage": "https://github.com/caganseyrek/TOC-Generator#README",
+  "homepage": "https://github.com/caganseyrek/QuickTOC#README",
   "lint-staged": {
     "src/**/*.ts": [
       "prettier --write",

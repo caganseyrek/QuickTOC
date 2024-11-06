@@ -1,1 +1,1 @@
-export { default as TOCGenerator } from "./toc_generator";
+export { default as QuickTOC } from "./quicktoc";

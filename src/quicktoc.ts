@@ -1,15 +1,15 @@
-interface TOCGeneratorProps {
+interface QuickTOCProps {
   includeH1?: boolean;
   pageContentsId?: string;
   tocSectionId?: string;
 }
 
-export default class TOCGenerator {
+export default class QuickTOC {
   private includeH1?: boolean;
   private pageContentsId?: string;
   private tocSectionId?: string;
 
-  public init({ includeH1 = false, pageContentsId = "page-contents", tocSectionId = "toc-section" }: TOCGeneratorProps = {}): void {
+  public init({ includeH1 = false, pageContentsId = "page-contents", tocSectionId = "toc-section" }: QuickTOCProps = {}): void {
     this.includeH1 = includeH1;
     this.pageContentsId = pageContentsId;
     this.tocSectionId = tocSectionId;

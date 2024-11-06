@@ -1,7 +1,7 @@
-import TOCGenerator from "../src/toc_generator";
+import QuickTOC from "../src/quicktoc";
 
-describe("TOCGenerator", () => {
-  let tocgenerator: TOCGenerator;
+describe("QuickTOC", () => {
+  let tocgenerator: QuickTOC;
   beforeEach(() => {
     document.body.innerHTML = `
       <div id="page-contents">
@@ -18,7 +18,7 @@ describe("TOCGenerator", () => {
       <div id="toc-section"></div>
     `;
 
-    tocgenerator = new TOCGenerator();
+    tocgenerator = new QuickTOC();
   });
 
   it("should create a TOC with default options", () => {
@@ -48,9 +48,7 @@ describe("TOCGenerator", () => {
 
   it("should create nested lists for subheadings", () => {
     tocgenerator.init();
-    const subLists = document.querySelectorAll(
-      ".toc-sublist, .toc-doublesublist, .toc-triplesublist",
-    );
+    const subLists = document.querySelectorAll(".toc-sublist, .toc-doublesublist, .toc-triplesublist");
 
     expect(subLists.length).toBeGreaterThan(0);
   });
