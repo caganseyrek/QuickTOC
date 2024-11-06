@@ -4,7 +4,7 @@ interface TOCGeneratorProps {
   tocSectionId?: string;
 }
 
-class TOCGenerator {
+export default class TOCGenerator {
   private includeH1?: boolean;
   private pageContentsId?: string;
   private tocSectionId?: string;
@@ -104,5 +104,3 @@ class TOCGenerator {
     }
   }
 }
-
-export default TOCGenerator;
