@@ -80,3 +80,7 @@ When you exclude `h1` tags, all the sublists go up one heading level.
 /* this class is not used when h1 is not included */
 .toc-triplesublist {}
 ```
+## License
+
+This project is open-source and licensed under [MIT License](https://github.com/caganseyrek/QuickTOC/blob/main/LICENSE).
+
