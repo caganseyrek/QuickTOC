@@ -17,11 +17,14 @@ pnpm add quicktoc
 Alternatively you can use the script as a vanilla javascript file. To do this, you need to clone the repo, compile the typescript files, and optionally minify the javascript file.
 
 ```bash
-git clone https://github.com/caganseyrek/QuickTOC.git # cloning the repo
+# cloning the repo
+git clone https://github.com/caganseyrek/QuickTOC.git
 
-pnpm build:vanilla # converting typescript files into javascript files
+# converting typescript files into javascript files
+pnpm build:vanilla
 
-pnpm minify:vanilla # (optional) minify the newly generated javascript file
+# (optional) minify the newly generated javascript file
+pnpm minify:vanilla
 ```
 
 Finally, a new file that contains the final code named `quicktoc.min.js` should be in a folder named `js`.
