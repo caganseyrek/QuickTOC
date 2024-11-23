@@ -6,11 +6,25 @@ You can see an example image of a generated TOC in [this example image](https://
 
 ## Installation
 
+You can install the script as a package.
+
 ```bash
 npm install quicktoc
 # or
 pnpm add quicktoc
 ```
+
+Alternatively you can use the script as a vanilla javascript file. To do this, you need to clone the repo, compile the typescript files, and optionally minify the javascript file.
+
+```bash
+git clone https://github.com/caganseyrek/QuickTOC.git # cloning the repo
+
+pnpm build:vanilla # converting typescript files into javascript files
+
+pnpm minify:vanilla # (optional) minify the newly generated javascript file
+```
+
+Finally, a new file that contains the final code named `quicktoc.min.js` should be in a folder named `js`.
 
 ## Options
 
@@ -82,6 +96,16 @@ const config: QuickTOCConfigProps = {
 };
 
 QuickTOC.init(config);
+```
+
+## Legacy Code
+
+The previous version of the code is still present on the `lib/` folder. I do not recommend using it as it is not as flexible and extensible as the latest varsion but if you still want to use it, the code is still available.
+
+You can minify the legacy cSode if you like.
+
+```bash
+pnpm minify:legacy
 ```
 
 ## License

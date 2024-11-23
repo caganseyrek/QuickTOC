@@ -32,7 +32,7 @@
   "scripts": {
     "build:package": "tsc -b",
     "build:vanilla": "tsc src/quicktoc.ts --target ES2020 --module CommonJS --outDir js",
-    "minify:latest": "terser js/quicktoc.js -o js/quicktoc.min.js --compress --mangle",
+    "minify:vanilla": "terser js/quicktoc.js -o js/quicktoc.min.js --compress --mangle",
     "minify:legacy": "terser lib/quicktoc-legacy.js -o js/quicktoc-legacy.min.js --compress --mangle",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "test": "jest",
