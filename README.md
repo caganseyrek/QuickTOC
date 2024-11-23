@@ -1,6 +1,6 @@
 # QuickTOC
 
-A simple script that uses the headings in the content of a page and automatically generates a table of contents with styling.
+A simple script that uses the headings in the content of a page and automatically generates a table of contents.
 
 You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/QuickTOC/blob/main/img/example.png).
 
