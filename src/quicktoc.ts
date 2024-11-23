@@ -1,8 +1,7 @@
 import * as Types from "./types";
 
 class QuickTOC {
-  private tocRootListType: Types.TOCRootListTypes = "dotted";
-  private includeH1Element: boolean = false;
+  private tocRootListType: Types.TOCRootListTypes = "bulleted";
   private pageContentElementId: string = "content";
   private tocPlacementElementId: string = "toc";
   private tocLevelClasses: Types.TOCLevelClassType | undefined;
@@ -125,7 +124,7 @@ class QuickTOC {
 
   public init(config: Types.QuickTOCConfigProps = {}): void {
     this.validateLevelClasses();
-    this.includeH1Element = config.includeH1Element ?? this.includeH1Element;
+    this.tocRootListType = config.tocRootListType ?? this.tocRootListType;
     this.pageContentElementId = config.pageContentElementId ?? this.pageContentElementId;
     this.tocPlacementElementId = config.tocPlacementElementId ?? this.tocPlacementElementId;
     this.tocLevelClasses = config.tocLevelClasses ?? this.tocLevelClasses;
@@ -170,9 +169,6 @@ class QuickTOC {
         break;
       }
       headingsFromPage[i].setAttribute("id", idForAnchorElement);
-      if (!this.includeH1Element && currentHeadingLevel === 1) {
-        continue;
-      }
       this.tocStack.push({ elementLevel: currentHeadingLevel, elementText: headingText, subElements: [] });
     }
 

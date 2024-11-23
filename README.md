@@ -4,9 +4,7 @@ A simple script that uses the headings in the content of a page and automaticall
 
 You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/QuickTOC/blob/main/img/example.png).
 
-## Setup and Usage
-
-First, install the package.
+## Installation
 
 ```bash
 npm install quicktoc
@@ -14,73 +12,78 @@ npm install quicktoc
 pnpm add quicktoc
 ```
 
+## Options
+
+```typescript
+declare interface QuickTOCConfigProps {
+  tocRootListType?: TOCRootListTypes;
+  includeH1Element?: boolean;
+  pageContentElementId?: string;
+  tocPlacementElementId?: string;
+  tocLevelClasses?: TOCLevelClassType;
+  levelQuery?: string;
+  debugMode?: boolean;
+}
+
+declare type TOCRootListTypes = "numbered" | "bulleted";
+```
+
+- **tocRootListType**: Determines the type of the root list in the table of contents. By default, the script generates an ordered (numbered) list as the outer list. You can pass `dotted` to make the outer list an unordered (bulleted) list or pass `numbered` to explicitly set it as an ordered list.
+
+- **pageContentElementId**: Specifies the ID of the element containing the page content which script should be used to generate the table of contents. By default, the script looks for an element with the ID `content`.
+
+- **tocPlacementElementId**: Specifies the ID of the element where the table of contents should be placed. By default, the script looks for an element with the ID `toc`.
+
+- **tocLevelClasses**: Defines CSS classes for specific header levels in the table of contents. This allows custom styling for each level of the generated TOC. By default the scripts assigns `toc-level-n` as class for each level of the sublist (where n is a level number). You can use custom classes by passing an object like one shown below.
+
+```typescript
+{
+  "toc-level-1": "myCustomClass1",
+  "toc-level-2": "myCustomClass2",
+  "toc-level-3": "myCustomClass3",
+  // ...
+}
+```
+
+You need to pass as many custom class as your heading levels.
+
+- **levelQuery**: A CSS selector string to identify the elements in the document to be included in the table of contents. This allows which levels are selected for the TOC (e.g., h2, h3, etc.). You can pass a string that includes heading tags sperated by commas like the one shown below.
+
+```typescript
+const exampleLevelQuery = "h1,h2,h3,h4,h5,h6";
+```
+
+- **debugMode**: Enables logging and debugging information in the console for development purposes. It helps identify issues in TOC generation by displaying detailed information about parsed elements, configuration, and errors.
+
+# Example Usage
+
 You can initialize the TOC without any parameters.
 
 ```typescript
-new QuickTOC().init();
+QuickTOC.init();
 ```
 
-By default, the script looks for an element with the ID "page-contents" to get the headings and an element with the ID "toc" to place the table of contents.
-
-If you want to use elements with custom IDs, you can pass the parameters as shown below:
+You can pass parameters mentioned above to the `init` function.
 
 ```typescript
-new QuickTOC().init({
-  includeH1: true,                  // includeH1?: boolean;
-  pageContentsId: "page-contents",  // pageContentsId?: string;
-  tocSectionId: "toc",              // tocSectionId?: string;
-});
+const config: QuickTOCConfigProps = {
+  tocRootListType: "numbered",
+  pageContentElementId: "content",
+  tocPlacementElementId: "toc",
+  tocLevelClasses: {
+    "toc-level-2": "myCustomClass2",
+    "toc-level-3": "myCustomClass3",
+    "toc-level-4": "myCustomClass4",
+    "toc-level-5": "myCustomClass5",
+    "toc-level-6": "myCustomClass6",
+  },
+  levelQuery: "h2,h3,h4,h5,h6",
+  debugMode: false,
+};
+
+QuickTOC.init(config);
 ```
 
-### Options
-
-- **includeH1**: By default, the script uses `h2`, `h3`, and `h4` elements while generating the TOC and reserves `h1` element for the page title. To include `h1` in the TOC, just set the first parameter to `true`.
-
-- **pageContentsId**: By default, the script looks for an element with the ID "page-contents" to get the headings. You can pass a custom element ID as the second parameter to use headings from that element.
-
-- **tocSectionId**: By default, the script looks for an element with the ID "toc" to place the table of contents. You can pass a custom element ID as the third parameter to place the TOC in that element.
-
-## Styling
-
-To use the default stylings, you can just install the `quicktoc.css` file, which contains the default styles for the TOC, and import it.
-
-```css
-@import url("/path/to/quicktoc.css"); /* css */
-```
-
-```typescript
-import "/path/to/quicktoc.css"; // typescript
-```
-
-```html
-<link rel="stylesheet" href="/path/to/quicktoc.css" /> <!-- html -->
-```
-
-## Custom Styling
-
-You can change appearance of the main list by adding styles to the container where the script places the list. Container and sublists have these classes as default:
-
-```css
-#toc {}
-#toc ul {}
-#toc ul li {}
-#toc ul li a {}
-
-.toc-sublist {} /* for h2 */
-.toc-doublesublist {} /* for h3 */
-.toc-triplesublist {} /* for h4 */
-```
-
-When you exclude `h1` tags, all the sublists go up one heading level.
-
-```css
-.toc-sublist {} /* for h3 */
-.toc-doublesublist {} /* for h4 */
-
-/* this class is not used when h1 is not included */
-.toc-triplesublist {}
-```
 ## License
 
 This project is open-source and licensed under [MIT License](https://github.com/caganseyrek/QuickTOC/blob/main/LICENSE).
-

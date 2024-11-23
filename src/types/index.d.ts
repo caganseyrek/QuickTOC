@@ -1,4 +1,5 @@
 declare interface QuickTOCConfigProps {
+  tocRootListType?: TOCRootListTypes;
   includeH1Element?: boolean;
   pageContentElementId?: string;
   tocPlacementElementId?: string;
@@ -7,7 +8,7 @@ declare interface QuickTOCConfigProps {
   debugMode?: boolean;
 }
 
-declare type TOCRootListTypes = "numbered" | "dotted";
+declare type TOCRootListTypes = "numbered" | "bulleted";
 
 declare interface TOCStackInterface {
   elementLevel: number;
