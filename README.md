@@ -105,7 +105,7 @@ QuickTOC.init(config);
 
 The previous version of the code is still present on the `lib/` folder. I do not recommend using it as it is not as flexible and extensible as the latest varsion but if you still want to use it, the code is still available.
 
-You can minify the legacy cSode if you like.
+You can minify the legacy code if you like.
 
 ```bash
 pnpm minify:legacy
