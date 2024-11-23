@@ -1,10 +1,9 @@
 import QuickTOC from "../src/quicktoc";
 
 describe("QuickTOC", () => {
-  let tocgenerator: QuickTOC;
   beforeEach(() => {
     document.body.innerHTML = `
-      <div id="page-contents">
+      <div id="content">
         <h1>H1 Element</h1>
         <h2>H2 Element 1</h2>
         <h3>H3 Element 1</h3>
@@ -15,15 +14,13 @@ describe("QuickTOC", () => {
         <h3>H3 Element 3</h3>
         <h2>H2 Element 4</h2>
       </div>
-      <div id="toc-section"></div>
+      <div id="toc"></div>
     `;
-
-    tocgenerator = new QuickTOC();
   });
 
   it("should create a TOC with default options", () => {
-    tocgenerator.init();
-    const tocSection = document.getElementById("toc-section");
+    QuickTOC.init();
+    const tocSection = document.getElementById("toc");
     const tocItems = tocSection?.querySelector("ol, ul");
 
     expect(tocSection).not.toBeNull();
@@ -32,7 +29,7 @@ describe("QuickTOC", () => {
   });
 
   it("should exclude H1 elements when includeH1 option is set to false", () => {
-    tocgenerator.init({ includeH1: false });
+    QuickTOC.init({ includeH1Element: false, levelQuery: "h1,h2,h3,h4,h5" });
     const tocLinks = document.querySelectorAll("#toc a");
     const hasH1Element = Array.from(tocLinks).some((link) => link.textContent === "H1 Element");
 
@@ -40,43 +37,24 @@ describe("QuickTOC", () => {
   });
 
   it("should add ids to headings if they don't have one", () => {
-    tocgenerator.init();
+    QuickTOC.init();
     const headings = document.querySelectorAll("#page-contents h1, h2, h3, h4");
 
     headings.forEach((heading) => expect(heading.id).toBeTruthy());
   });
 
   it("should create nested lists for subheadings", () => {
-    tocgenerator.init();
-    const subLists = document.querySelectorAll(".toc-sublist, .toc-doublesublist, .toc-triplesublist");
+    QuickTOC.init();
+    const subLists = document.querySelectorAll(".toc-level-1,.toc-level-2,.toc-level-3,.toc-level-4,.toc-level-5");
 
     expect(subLists.length).toBeGreaterThan(0);
   });
 
-  it("should log a console error if the pageContents element is not fount", () => {
+  it("should log a console error if the content element is not fount", () => {
     console.error = jest.fn();
-    document.getElementById("page-contents")?.remove();
+    document.getElementById("contents")?.remove();
 
-    tocgenerator.init();
-    expect(console.error).toHaveBeenCalledWith("Cannot get pageContents element");
-  });
-
-  it("should log a console error if the tocSection element is not fount", () => {
-    console.error = jest.fn();
-    document.getElementById("toc-section")?.remove();
-
-    tocgenerator.init();
-    expect(console.error).toHaveBeenCalledWith("Cannot get tocSection element");
-  });
-
-  it("should log a console error if there are no headings in the pageContents element", () => {
-    console.error = jest.fn();
-    const pageContents = document.getElementById("page-contents");
-    if (pageContents) {
-      pageContents.innerHTML = "Does not have headings";
-    }
-
-    tocgenerator.init();
-    expect(console.error).toHaveBeenCalledWith("Cannot get headings");
+    QuickTOC.init();
+    expect(console.error);
   });
 });

@@ -1,6 +1,6 @@
 {
   "name": "quicktoc",
-  "version": "2.1.3",
+  "version": "3.0.0",
   "description": "Automatic table of contents generator",
   "main": "dist/index.js",
   "type": "module",
@@ -30,7 +30,10 @@
     ]
   },
   "scripts": {
-    "build": "tsc -b",
+    "build:package": "tsc -b",
+    "build:vanilla": "tsc src/quicktoc.ts --target ES2020 --module CommonJS --outDir js",
+    "minify:latest": "terser js/quicktoc.js -o js/quicktoc.min.js --compress --mangle",
+    "minify:legacy": "terser lib/quicktoc-legacy.js -o js/quicktoc-legacy.min.js --compress --mangle",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "test": "jest",
     "prepare": "husky"
@@ -38,6 +41,7 @@
   "devDependencies": {
     "@eslint/js": "^9.14.0",
     "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.1",
     "esbuild": "0.24.0",
     "eslint": "^9.14.0",
     "globals": "^15.12.0",
