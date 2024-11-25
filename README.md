@@ -1,5 +1,9 @@
 # QuickTOC
 
+![NPM Version](https://img.shields.io/npm/v/quicktoc)
+![NPM Downloads](https://img.shields.io/npm/d18m/quicktoc)
+![NPM License](https://img.shields.io/npm/l/quicktoc)
+
 A simple script that uses the headings in the content of a page and automatically generates a table of contents.
 
 You can see an example image of a generated TOC in [this example image](https://github.com/caganseyrek/QuickTOC/blob/main/img/example.png).
